@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className='flex flex-col md:flex-row justify-between h-auto w-full fixed top-0 z-50'>
         {/* --------------Navbar Container------------------- */}
-        <div className='flex justify-between w-full items-center p-2 h-20 bg-white px-6 md:px-[8%] z-40 shadow-md'>
+        <div className={`flex justify-between w-full items-center p-2 h-20 bg-white px-6 md:px-[8%] z-40 shadow-md  transition-shadow duration-700 ${displayNavMob && 'shadow-none'}`}>
             {/* --------------Logo-------------- */}
             <div id='logo'>
                 <img src={viteLogo} alt="" />
