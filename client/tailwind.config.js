@@ -14,7 +14,9 @@ export default {
       },
       backgroundImage: {
         'window': "url('/src/assets/windowFrame.png')",
-      }
+        'bgBig' : "url('/src/assets/banner/testBg2.png')"
+      },
+      
     },
   },
   plugins: [],

@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-transition {
+    transition: background-color 0.5s ease; /* Transition for background color change */
+  }
