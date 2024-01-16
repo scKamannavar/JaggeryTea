@@ -4,10 +4,10 @@ const NavbarElements = ({children,scrollTo, sectionRef, setterFunc}) => {
 
   const handleScroll=()=>{
     scrollTo(sectionRef)
-    setterFunc(false)
+    {setterFunc && setterFunc(false)} 
   }
   return (
-    <div className='text-sm font-Montser font-bold text-slate-700 cursor-pointer ' onClick={handleScroll} >
+    <div className='text-lg text-[#86561F] font-Cabin font-bold cursor-pointer ' onClick={handleScroll} >
       {children}
     </div>
   )

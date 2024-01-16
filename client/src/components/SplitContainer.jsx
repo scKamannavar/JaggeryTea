@@ -1,20 +1,95 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import img1 from '../assets/about/about1.jpg';
+import img2 from '../assets/about/about2.jpg';
 
-const SplitContainer = ({order}) => {
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+const SplitContainer = ({ order, content }) => {
+  const controls1 = useAnimation();
+  const [ref1, inView1] = useInView({
+    triggerOnce: true,
+  });
+
+  const controls2 = useAnimation();
+  const [ref2, inView2] = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView1) {
+      controls1.start('visible');
+    }
+    if (inView2) {
+      controls2.start('visible');
+    }
+  }, [controls1, controls2, inView1, inView2]);
+
+  const containerVariants = {
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.6, // Adjust the stagger duration as needed
+      },
+    },
+    hidden: {
+      opacity: 0,
+    },
+  };
+
+  const itemVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 40 },
+  };
+
   return (
-    <div className='flex flex-col md:flex-row h-screen md:h-[60vh] w-full order'>
-      <div className='flex h-full flex-1'>
-        <img className='h-full w-full md:w-[90%]' src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg" alt="" />
-      </div>
-      <div className={`flex flex-col flex-1 md:gap-6 justify-center items-center md:items-start py-6 px-6 md:p-20 ${order && 'order-first'} `}>
-      
-          <div className=' font-Montser font-bold text-sm text-left'><h1>Best Taste Better Health</h1></div>
-          <div className='font-Garamond text-4xl md:text-6xl' >Desi Jaggery Tea</div>
-          <div className=' font-Garamond text-slate-500 text-md text-center md:text-left' >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita cupiditate dolorum voluptas quae animi sit nam veniam voluptatibus quidem labore sapiente dolores molestiae excepturi saepe aspernatur vero veritatis, nostrum quaerat!</div>
+    <>
+      <motion.div
+        ref={ref1}
+        initial="hidden"
+        animate={controls1}
+        variants={containerVariants}
+        transition={{ duration: 2 }}
+        className='flex flex-col md:flex-row h-full md:h-full w-full '>
+        <motion.div
+          variants={itemVariants}
+          className={`flex flex-col flex-1 md:gap-6 justify-center items-center md:items-start py-6 px-6 md:px-20  sm:pl-0 sm:pb-6`}>
+          <>
+            <div className='font-Cabin text-4xl md:text-6xl' > About Desi Jaggery Tea</div>
+            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >{content}</div>
+          </>
+        </motion.div>
+        <motion.div
+          variants={itemVariants}
+          className={`flex h-[80vh] sm:h-full justify-center items-center flex-1 object-fit sm:pl-20 order-first`}>
+          <img className='h-auto w-auto md:w-100' src={img2} alt="" title="Image by Freepik" />
+        </motion.div>
+      </motion.div>
 
-      </div>
-    </div>
-  )
-}
+      <motion.div
+        ref={ref2}
+        initial="hidden"
+        animate={controls2}
+        variants={containerVariants}
+        transition={{ duration: 2 }}
+        className='flex flex-col md:flex-row h-full md:h-full w-full order '>
+        <motion.div
+          variants={itemVariants}
+          className={`flex h-[80vh] sm:h-full justify-center items-center flex-1 object-fit sm:pr-20`}>
+          <img className='h-auto w-auto md:w-[100%]' src={img1} alt="" />
+        </motion.div>
+        <motion.div
+          variants={itemVariants}
+          className={`flex flex-col flex-1 md:gap-6 justify-center items-center md:items-start py-6 px-6 md:px-20 order-first sm:pl-0 sm:pb-6 `}>
+          <>
+            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >Our <span className='text-2xl sm:text-4xl'>vision</span> is to improve global health and well-being by creating and promoting healthy products that enhance people's lives.</div>
+            <br />
+            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >Our <span className='text-2xl sm:text-4xl'>mission</span> is to empower aspiring entrepreneurs in major cities worldwide, by providing them with the necessary tools, resources, and support to establish successful businesses and contribute to the growth of the world economy.</div>
+          </>
+        </motion.div>
+      </motion.div>
+    </>
+  );
+};
 
-export default SplitContainer
+export default SplitContainer;

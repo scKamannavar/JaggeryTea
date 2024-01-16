@@ -6,7 +6,7 @@ import Banner1 from '../assets/banner/Banner1.png'
 import Banner2 from '../assets/banner/Banner2.png'
 import Banner3 from '../assets/banner/Banner3.png'
 
-const Home = () => {
+const Home = ({scrollTo,blendsRef}) => {
 
   const images = [Banner1,Banner2,Banner3]
   const [currentImage, setCurrentImage] = useState(0)
@@ -32,40 +32,46 @@ const Home = () => {
 
   function handleLocationClick(){
     alert('Location Pressed!')
+    window.location.href = 'tel:' + 9513421639
   }
 
   function handleShopClick(){
     alert('Shop Pressed!')
+    scrollTo(blendsRef)
   }
 
   return (
-    <div className='flex flex-col md:flex-row justify-center items-center h-screen bg-bgBig bg-cover pt-20 md:pt-0'>
+    <div className='flex flex-col md:flex-row justify-center items-center h-screen bg-pink-100 md:bg-bgBig bg-cover pt-24 md:pt-0'>
       {/* -----------------Left Container--------------------- */}
       <div className='flex flex-1 justify-center items-center h-screen w-ful md:pl-[10%] order-1'>
         <div className='flex flex-col gap-6 text-center md:text-left'>
           <div className=' font-Montser font-bold text-sm'><h1>Best Taste Better Health</h1></div>
           <div className='font-Garamond text-5xl md:text-7xl' >Desi Jaggery Tea</div>
-          <div className=' font-Garamond text-slate-500 text-dm' >Best Taste Better Health</div>
+          <div className=' font-Garamond text-slate-500 text-dm' >A premium brand of jaggery tea that offers a unique and flavorful tea experience</div>
           <div className='flex justify-center md:justify-start' > 
-            <Button onclick={handleLocationClick}> Locations</Button>
-            <Button onclick={handleShopClick}> Shop Blends</Button>
+          <div className='sm:hidden'>
+          <Button onclick={handleLocationClick} color = 'bg-black'> Connect Now</Button>
+          </div>
+            
+            <Button scrollTo={scrollTo} sectionRef={blendsRef}> Discover our Products</Button>
           </div>
         </div>
       </div>
       {/* -----------------Right Container--------------------- */}
       <div className='flex flex-1 items-center h-screen w-full overflow-hidden md:pt-20 justify-center sm:order-2 '>
-        <div className='relative w-[350px] h-[350px] md:w-[100%] md:h-[100%] '>
+        <div className='flex relative justify-center w-[350px] h-[350px] md:w-[100%] md:h-[100%] '>
           <AnimatePresence mode='wait'>
             {images.map((img, index) => (
               index === currentImage && (
                 <motion.img
+                className='md:h-[300px] md:mt-[120px] lg:mt-[0px] lg:h-[100%]'
                   key={index}
                   src={img}
                   alt={`Image ${index}`}
                   style={{
                     position: 'absolute',
-                    width: '100%',
-                    height: '100%',
+                    // width: '100%',
+                    // height: '100%',
                     objectFit: 'cover',
                     left: 0,
                     top: 0,
