@@ -7,7 +7,7 @@ import Logo from '../assets/logo/logo1.png'
 import { AnimatePresence, motion } from "framer-motion"
 import TeaStallsBar from './TeaStallsBar'
 
-const Navbar = ({scrollTo, aboutRef, homeRef, blendsRef, contactRef}) => {
+const Navbar = ({scrollTo, aboutRef, homeRef, blendsRef, contactRef, franchiseRef, distributorRef, galleryRef}) => {
 
     const [displayNavMob, setDisplayNavMob] = useState(false)
     // const [displayNavDesk, setDisplayNavDesk] = useState(true)
@@ -52,23 +52,24 @@ const Navbar = ({scrollTo, aboutRef, homeRef, blendsRef, contactRef}) => {
                 <img src={Logo} className=" w-[70px] md:w-[100px]"alt="" />
             </div>
             {/* --------------Desktop View Nav Elements-------------- */}
-            <div id='navigationElements' className='md:flex md:flex-row md:justify-center gap-[50px] w-full pl-12  md:block hidden '>
+            <div id='navigationElements' className='md:flex md:flex-row md:justify-center gap-[30px] w-full pl-12 flex-wrap  md:block hidden '>
                 {/* {navElements.map((ele)=>
                 <NavbarElements >{ele}</NavbarElements>
                 )}           */}
                 <NavbarElements scrollTo={scrollTo} sectionRef={homeRef} >HOME</NavbarElements>
                 <NavbarElements scrollTo={scrollTo} sectionRef={blendsRef} >OUR BLENDS</NavbarElements>
                 <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} >ABOUT US</NavbarElements>
-                <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} >FREE FRANCHISE</NavbarElements>
-                <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} >BECOME A DISTRIBUTOR</NavbarElements>
+                <NavbarElements scrollTo={scrollTo} sectionRef={franchiseRef} >FREE FRANCHISE</NavbarElements>
+                <NavbarElements scrollTo={scrollTo} sectionRef={distributorRef} >BECOME A DISTRIBUTOR</NavbarElements>
+                {/* <NavbarElements scrollTo={scrollTo} sectionRef={galleryRef} >GALLERY</NavbarElements> */}
                 <NavbarElements scrollTo={scrollTo} sectionRef={contactRef} >CONTACT US</NavbarElements>
                 {/* <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} >About Us</NavbarElements> */}
 
             </div>
             {/* ---------- Menu icon(Only for smaller screens) and Franchise Button ---------- */}
             <div className='flex' id='specialNavigationElements'>
-                <a href="tel:9513421639" className='flex justify-center items-center w-[115px] hidden text-bold md:block border-[1px] border-black py-1 px-2  rounded-full cursor-pointer hover:bg-black hover:text-white transition-colors duration-500'>
-                    CALL NOW <i class="fa fa-phone"></i>
+                <a href="tel:9513421639" className='flex justify-center items-center md:w-[90px] md:text-xs lg:w-[90px] hidden text-bold md:block border-[1px] border-black py-1 px-2  rounded-full cursor-pointer hover:bg-black hover:text-white transition-colors duration-500'>
+                    CALL NOW 
                 </a>
                 <div className='md:hidden' onClick={()=>setDisplayNavMob(!displayNavMob)}> 
                     {displayNavMob?<img src={Close} alt="" />:<img src={Menu} alt="" />}
@@ -100,10 +101,58 @@ const Navbar = ({scrollTo, aboutRef, homeRef, blendsRef, contactRef}) => {
                 </motion.NavbarElements>
                 )}           */}
                 {/* <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} setterFunc={setDisplayNavMob} >About Us</NavbarElements> */}
-                <NavbarElements scrollTo={scrollTo} sectionRef={homeRef} setterFunc={setDisplayNavMob}>HOME</NavbarElements>
-                <NavbarElements scrollTo={scrollTo} sectionRef={blendsRef} setterFunc={setDisplayNavMob}>OUR BLENDS</NavbarElements>
-                <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} setterFunc={setDisplayNavMob}>ABOUT US</NavbarElements>
-                <NavbarElements scrollTo={scrollTo} sectionRef={contactRef} setterFunc={setDisplayNavMob}>CONTACT US</NavbarElements>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  key='0'
+                  exit={{ opacity: 0,transition:{duration: 0.3, delay: 0 * 0.2 } }}
+                  transition={{ duration: 0.3, delay: 0 * 0.2 }}>
+                  <NavbarElements scrollTo={scrollTo} sectionRef={homeRef} setterFunc={setDisplayNavMob}>HOME</NavbarElements>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  key='1'
+                  exit={{ opacity: 0,transition:{duration: 0.3, delay: 1 * 0.2 } }}
+                  transition={{ duration: 0.3, delay: 1 * 0.2 }}>
+                  <NavbarElements scrollTo={scrollTo} sectionRef={blendsRef} setterFunc={setDisplayNavMob}>OUR BLENDS</NavbarElements>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  key='3'
+                  exit={{ opacity: 0,transition:{duration: 0.3, delay: 2 * 0.2 } }}
+                  transition={{ duration: 0.3, delay: 2 * 0.2 }}>
+                  <NavbarElements scrollTo={scrollTo} sectionRef={aboutRef} setterFunc={setDisplayNavMob}>ABOUT US</NavbarElements>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  key='4'
+                  exit={{ opacity: 0,transition:{duration: 0.3, delay: 3 * 0.2 } }}
+                  transition={{ duration: 0.3, delay: 3 * 0.2 }}>
+                  <NavbarElements scrollTo={scrollTo} sectionRef={franchiseRef} setterFunc={setDisplayNavMob}>FREE FRANCHISE</NavbarElements>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  key='5'
+                  exit={{ opacity: 0,transition:{duration: 0.3, delay: 4 * 0.2 } }}
+                  transition={{ duration: 0.3, delay: 4 * 0.2 }}>
+                  <NavbarElements scrollTo={scrollTo} sectionRef={distributorRef} setterFunc={setDisplayNavMob}>BECOME A DISTRIBUTOR</NavbarElements>
+                </motion.div>
+              
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  key='6'
+                  exit={{ opacity: 0,transition:{duration: 0.3, delay: 5 * 0.2 } }}
+                  transition={{ duration: 0.3, delay: 5 * 0.2 }}>
+                  <NavbarElements scrollTo={scrollTo} sectionRef={contactRef} setterFunc={setDisplayNavMob}>CONTACT US</NavbarElements>
+                </motion.div>
+                {/* <NavbarElements scrollTo={scrollTo} sectionRef={galleryRef} >GALLERY</NavbarElements> */}
             </motion.div>   
         }
         </AnimatePresence>        

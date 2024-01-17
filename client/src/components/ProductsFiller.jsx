@@ -4,7 +4,7 @@ import Button from './Button'
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-const ProductsFiller = () => {
+const ProductsFiller = ({scrollTo,blendsRef}) => {
 
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -41,17 +41,17 @@ const ProductsFiller = () => {
     animate={controls}
     variants={containerVariants}
     transition={{ duration: 2 }} 
-    className='flex flex-col md:flex-row h-full items-center justify-center w-full relative bg-fixed bg-fillerProductBg md:px-24 md:m-6' >
+    className='flex flex-col md:flex-row h-full items-center justify-center w-full  bg-fixed bg-fillerProductBg' >
         <motion.div
         variants={itemVariants}
-         className='flex flex-1 p-4 text-2xl font-bold text-center font-Cabin items-center justify-center '>
+         className='flex flex-1 p-4 text-2xl md:text-4xl font-bold text-center font-Garamond text-[#723c18] items-center justify-center '>
             <h1>"Explore our premium tea blends, Enjoy richness in every cup"</h1>
         </motion.div>
         <motion.div
         variants={itemVariants}
          className='flex flex-1 items-center justify-center  '>
             {/* <Button scrollTo={scrollTo} sectionRef={blendsRef}> Discover our Products</Button> */}
-            <Button> SHOP NOW</Button>
+            <Button scrollTo={scrollTo} sectionRef={blendsRef}> SHOP NOW</Button>
         </motion.div>
         <motion.div
         variants={itemVariants}       

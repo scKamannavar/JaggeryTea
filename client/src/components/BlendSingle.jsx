@@ -8,11 +8,11 @@ const BlendSingle = ({children,image,desc}) => {
   }
   return (
     <div className={`flex flex-col justify-center items-center gap-3 pt-12 h-[500px] w-[350px] bg-window bg-center bg-no-repeat bg-contain hover:scale-110 duration-300 `}>
-        <div className='font-semibold text-md'>{children}</div>
-        <div className='flex justify-center items-center h-[150px] w-[150px] rounded-full overflow-hidden'>
+        <div className='font-semibold text-xl font-Sans  '>{children}</div>
+        <div className='flex justify-center items-center h-fit w-fit rounded-full overflow-hidden'>
             <img src={image} alt="" />
         </div>
-        <div className='text-center text-md font-Cabin text-slate-600 px-12'>{desc}</div>
+        {/* <div className='text-center text-md font-Cabin text-slate-600 px-12'>{desc}</div> */}
         <div id='orderButton'> 
             {/* <button type='button' className='flex justify-center border border-black py-3 px-4 text-xs font-Montser'>
                 ORDER NOW !

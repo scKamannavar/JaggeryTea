@@ -35,6 +35,10 @@ const Franchise = () => {
     
   };
 
+  const handleCallNow=()=>{
+    window.location.href = 'tel:' + 9513421639
+  }
+
   return (
     <motion.div
       ref={ref}
@@ -61,13 +65,13 @@ const Franchise = () => {
         </motion.h1>
         <motion.h1
         variants={itemVariants}
-         className='font-Cabin text-[20px] font-bold text-center'>
+         className='font-Cabin md:text-[24px] text-[20px] text-gray-500 font-bold text-center'>
           Open our tea franchise for free and start earning more. Join our tea legacy without any initial investment. Seize the chance to share the delight of Desi Jaggery's Tea in your community. Begin your entrepreneurial journey with us today.
         </motion.h1>
         <motion.div
         variants={itemVariants}
         className='flex justify-center items-center'>
-          <Button>Call Now</Button>
+          <Button onclick={handleCallNow}>Call Now</Button>
         </motion.div>
       </motion.div>
     </motion.div>

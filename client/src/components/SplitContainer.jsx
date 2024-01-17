@@ -55,7 +55,7 @@ const SplitContainer = ({ order, content }) => {
           variants={itemVariants}
           className={`flex flex-col flex-1 md:gap-6 justify-center items-center md:items-start py-6 px-6 md:px-20  sm:pl-0 sm:pb-6`}>
           <>
-            <div className='font-Cabin text-4xl md:text-6xl' > About Desi Jaggery Tea</div>
+            <div className='font-Cabin text-4xl md:text-4xl' > About Desi Jaggery Tea</div>
             <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >{content}</div>
           </>
         </motion.div>
@@ -82,9 +82,9 @@ const SplitContainer = ({ order, content }) => {
           variants={itemVariants}
           className={`flex flex-col flex-1 md:gap-6 justify-center items-center md:items-start py-6 px-6 md:px-20 order-first sm:pl-0 sm:pb-6 `}>
           <>
-            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >Our <span className='text-2xl sm:text-4xl'>vision</span> is to improve global health and well-being by creating and promoting healthy products that enhance people's lives.</div>
+            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >Our <span className='text-2xl sm:text-4xl text-black'>vision</span> is to improve global health and well-being by creating and promoting healthy products that enhance people's lives.</div>
             <br />
-            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >Our <span className='text-2xl sm:text-4xl'>mission</span> is to empower aspiring entrepreneurs in major cities worldwide, by providing them with the necessary tools, resources, and support to establish successful businesses and contribute to the growth of the world economy.</div>
+            <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >Our <span className='text-2xl sm:text-4xl text-black'>mission</span> is to empower aspiring entrepreneurs in major cities worldwide, by providing them with the necessary tools, resources, and support to establish successful businesses and contribute to the growth of the world economy.</div>
           </>
         </motion.div>
       </motion.div>

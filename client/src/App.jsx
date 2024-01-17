@@ -28,6 +28,7 @@ function App() {
   const contactRef = useRef(null)
   const franchiseRef = useRef(null)
   const distributorRef = useRef(null)
+  const galleryRef = useRef(null)
   const scrollToRef = (ref) => {
     if (ref && ref.current) {
       window.scrollTo({
@@ -47,6 +48,9 @@ function App() {
         homeRef={homeRef}
         blendsRef={blendsRef}
         contactRef={contactRef}
+        franchiseRef={franchiseRef}
+        distributorRef={distributorRef}
+        galleryRef={galleryRef}
         >
       </Navbar>
       
@@ -55,10 +59,10 @@ function App() {
         <HomeSlider/>
         {/* <Home scrollTo ={scrollToRef} blendsRef={blendsRef} ></Home> */}
       </div>
-      <div>
-        <ProductsFiller/>
+      <div className='m-4 md:m-6' >
+        <ProductsFiller scrollTo ={scrollToRef} blendsRef={blendsRef}/>
       </div>
-      <div ref={aboutRef}>
+      <div  ref={aboutRef}>
         <AboutUs/>
       </div>
       
@@ -71,14 +75,23 @@ function App() {
       <div ref={distributorRef}>
         <Distributor/>
       </div>
-      <div>
+      <div ref={galleryRef}>
         {/* <Gallery/> */}
         <GalleryGrid/>
       </div>
       <div ref={contactRef}>
         <ContactUs/>
       </div>
-      <Footer/>
+      <Footer
+       scrollTo ={scrollToRef}
+       aboutRef={aboutRef}
+       homeRef={homeRef}
+       blendsRef={blendsRef}
+       contactRef={contactRef}
+       franchiseRef={franchiseRef}
+       distributorRef={distributorRef}
+       galleryRef={galleryRef}
+      />
     </>
   )
 }
