@@ -55,7 +55,7 @@ const SplitContainer = ({ order, content }) => {
           variants={itemVariants}
           className={`flex flex-col flex-1 md:gap-6 justify-center items-center md:items-start py-6 px-6 md:px-20  sm:pl-0 sm:pb-6`}>
           <>
-            <div className='font-Cabin text-4xl md:text-4xl' > About Desi Jaggery Tea</div>
+            <div className='font-Cabin font-bold text-4xl md:text-4xl' > About Desi Jaggery'z Tea</div>
             <div className='font-sans text-slate-500 sm:text-xl text-md text-center md:text-left' >{content}</div>
           </>
         </motion.div>

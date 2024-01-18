@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../assets/logo/logo1.png'
+import TeaCup from '../assets/products/plainCupCrop.png'
 import NavbarElements from './NavbarElements'
 const Footer = ({scrollTo, aboutRef, homeRef, blendsRef, contactRef, franchiseRef, distributorRef, galleryRef}) => {
   return (
@@ -34,12 +35,22 @@ const Footer = ({scrollTo, aboutRef, homeRef, blendsRef, contactRef, franchiseRe
                 {/* <NavbarElements scrollTo={scrollTo} sectionRef={galleryRef} >GALLERY</NavbarElements> */}
                 <NavbarElements scrollTo={scrollTo} sectionRef={contactRef} footer='1'>CONTACT US</NavbarElements>
         </div>
-        <div className='flex flex-1 items-center text-xl justify-center font-Cabin  sm:gap-10 gap-2 hidden md:flex'>
-        DESI JAGGERY'Z TEA is a premium brand of jaggery tea that offers a unique and flavorful tea experience.
+        <div className='flex flex-1 flex-col items-center text-xs justify-around font-Garamond  sm:gap-10 gap-2 hidden md:flex'>
+            <div>
+              <img src={TeaCup} className=" w-[70px] md:w-[120px]"alt="" />
+            </div>
+            <div className='flex flex-col justify-center items-center text-xs md:text-xl font-Cabin'>
+                  {/* <h1>
+                  DESI JAGGERY'Z TEA
+                  </h1> */}
+                  <h1 className='text-center font-Cabin font-bold  text-[#723C18]'>
+                  Unlock new income streams! 
+                  </h1>
+            </div>
         </div>
       </div>
-      <div className='flex items-center text-xs text-white justify-center bg-[#723C18] p-2'>
-        <h1 className='text-center'>DesiJaggeryTea © 2023 All Rights Reserved | Designed and Developed by SagarcK</h1>
+      <div className='flex items-center text-xs md:text-sm text-white justify-center bg-[#723C18] p-2'>
+        <h1 className='text-center'>DesiJaggeryTea © 2023 All Rights Reserved | Designed and Developed by <a href="https://portfolio-sagarck.vercel.app/">SagarcK</a> </h1>
       </div>
     </div>
   )
